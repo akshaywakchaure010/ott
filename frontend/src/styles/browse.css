@@ -1,0 +1,50 @@
+.pp-browse-header {
+  padding: 40px 48px 16px;
+}
+
+.pp-browse-header h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.pp-genre-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pp-genre-chip {
+  border: 1px solid var(--pp-border);
+  background: var(--pp-bg-card);
+  color: var(--pp-text-secondary);
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.pp-genre-chip:hover {
+  color: var(--pp-text-primary);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.pp-genre-chip.active {
+  background: var(--pp-gradient);
+  color: #fff;
+  border-color: transparent;
+}
+
+.pp-rows-wrap-static {
+  padding-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .pp-browse-header {
+    padding: 24px 16px 12px;
+  }
+  .pp-browse-header h1 {
+    font-size: 22px;
+  }
+}

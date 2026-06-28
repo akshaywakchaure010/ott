@@ -1,0 +1,94 @@
+.pp-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #07070b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.55s ease;
+}
+
+.pp-intro-exiting {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pp-intro-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.pp-intro-svg {
+  width: 200px;
+  height: 200px;
+  overflow: visible;
+}
+
+.pp-intro-pixel {
+  fill: var(--pixel-color);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pp-pixel-land 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes pp-pixel-land {
+  0% {
+    opacity: 0;
+    transform: translate(calc(var(--final-x) + var(--start-x)), calc(var(--final-y) + var(--start-y)))
+      rotate(var(--start-rot)) scale(0.4);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(var(--final-x), var(--final-y)) rotate(0deg) scale(1);
+  }
+}
+
+.pp-intro-wordmark {
+  font-family: var(--pp-font-display, "Archivo", sans-serif);
+  font-size: 22px;
+  font-weight: 800;
+  color: #f5f5f8;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: pp-wordmark-in 0.6s ease forwards;
+  animation-delay: 1.05s;
+}
+
+@keyframes pp-wordmark-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-intro-pixel {
+    animation: none;
+    opacity: 1;
+    transform: translate(var(--final-x), var(--final-y));
+  }
+  .pp-intro-wordmark {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .pp-intro-svg {
+    width: 150px;
+    height: 150px;
+  }
+  .pp-intro-wordmark {
+    font-size: 18px;
+  }
+}

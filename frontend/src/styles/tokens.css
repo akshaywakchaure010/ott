@@ -1,0 +1,161 @@
+/* ===================================================================
+   Pixel Play — Design Tokens
+   Direction: cinematic dark UI, signature gradient pulled directly
+   from the brand mark (magenta -> violet -> electric blue). Display
+   type is a tall, confident grotesk for titles; body copy stays in
+   a calmer humanist sans so long descriptions stay readable.
+=================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  /* Palette */
+  --pp-bg: #07070b;
+  --pp-bg-elevated: #111118;
+  --pp-bg-card: #15151d;
+  --pp-surface-hover: #1d1d28;
+  --pp-border: rgba(255, 255, 255, 0.08);
+
+  --pp-pink: #ff2d78;
+  --pp-violet: #a23dff;
+  --pp-blue: #2d8bff;
+
+  --pp-gradient: linear-gradient(110deg, var(--pp-pink) 0%, var(--pp-violet) 55%, var(--pp-blue) 100%);
+  --pp-gradient-soft: linear-gradient(110deg, rgba(255, 45, 120, 0.18) 0%, rgba(162, 61, 255, 0.18) 55%, rgba(45, 139, 255, 0.18) 100%);
+
+  --pp-text-primary: #f5f5f8;
+  --pp-text-secondary: #a3a3b0;
+  --pp-text-tertiary: #6c6c79;
+
+  --pp-success: #2dd881;
+  --pp-warning: #ffb020;
+  --pp-danger: #ff4d6a;
+
+  /* Type */
+  --pp-font-display: "Archivo", "Inter", sans-serif;
+  --pp-font-body: "Inter", sans-serif;
+
+  /* Layout */
+  --pp-nav-width: 84px;
+  --pp-nav-width-expanded: 220px;
+  --pp-radius-sm: 6px;
+  --pp-radius-md: 12px;
+  --pp-radius-lg: 18px;
+  --pp-shadow-card: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--pp-bg);
+  color: var(--pp-text-primary);
+  font-family: var(--pp-font-body);
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--pp-font-display);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+  color: var(--pp-text-secondary);
+  line-height: 1.6;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--pp-violet);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Shared utility classes */
+.pp-gradient-text {
+  background: var(--pp-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pp-container {
+  width: 100%;
+  padding: 0 48px;
+}
+
+.pp-skeleton {
+  background: linear-gradient(90deg, var(--pp-bg-card) 25%, var(--pp-surface-hover) 50%, var(--pp-bg-card) 75%);
+  background-size: 200% 100%;
+  animation: pp-shimmer 1.4s infinite;
+  border-radius: var(--pp-radius-sm);
+}
+
+@keyframes pp-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 768px) {
+  .pp-container {
+    padding: 0 16px;
+  }
+}

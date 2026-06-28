@@ -1,0 +1,22 @@
+.pp-app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--pp-bg);
+}
+
+.pp-main {
+  margin-left: var(--pp-nav-width);
+  flex: 1;
+  max-height: 100vh;
+  max-width: 100%;
+  overflow-y: auto;
+  padding-bottom: 64px;
+}
+
+@media (max-width: 768px) {
+  .pp-main {
+    margin-left: 0;
+    overflow-y: auto;
+    padding-bottom: 84px;
+  }
+}

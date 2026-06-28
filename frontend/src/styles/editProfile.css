@@ -1,0 +1,56 @@
+.pp-edit-profile {
+  padding: 40px 48px 60px;
+}
+
+.pp-edit-profile h1 {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 14px 0 4px;
+}
+
+.pp-edit-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+  align-items: start;
+}
+
+.pp-edit-avatar-preview {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--pp-bg-card);
+  border: 1px solid var(--pp-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pp-text-secondary);
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.pp-edit-avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pp-auth-success {
+  background: rgba(45, 216, 129, 0.12);
+  border: 1px solid rgba(45, 216, 129, 0.35);
+  color: var(--pp-success);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .pp-edit-profile {
+    padding: 24px 16px 40px;
+  }
+  .pp-edit-profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

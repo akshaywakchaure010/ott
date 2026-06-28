@@ -1,0 +1,132 @@
+.pp-card {
+  position: relative;
+  width: 220px;
+  flex-shrink: 0;
+  
+  cursor: pointer;
+}
+
+.pp-card-poster {
+  width: 220px;
+  height: 124px;
+  border-radius: var(--pp-radius-md);
+  background-size: cover;
+  background-position: center;
+  background-color: var(--pp-bg-card);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.pp-card:hover .pp-card-poster {
+  transform: scale(1.08);
+  box-shadow: var(--pp-shadow-card);
+  z-index: 20;
+}
+
+.pp-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.pp-card:hover .pp-card-overlay {
+  opacity: 1;
+}
+
+.pp-card-play,
+.pp-card-add {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #07070b;
+  background: #fff;
+  transition: transform 0.15s ease;
+}
+
+.pp-card-add {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.pp-card-play:hover,
+.pp-card-add:hover {
+  transform: scale(1.1);
+}
+
+.pp-card-progress-track {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.pp-card-progress-fill {
+  height: 100%;
+  background: var(--pp-gradient);
+}
+
+.pp-card-info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 10px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.92), transparent 90%);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.pp-card:hover .pp-card-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pp-card-info h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pp-card-meta {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 11px;
+  color: var(--pp-text-secondary);
+}
+
+.pp-pill {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  .pp-card,
+  .pp-card-poster {
+    width: 150px;
+    height: 90px;
+  }
+}
