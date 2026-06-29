@@ -4,7 +4,6 @@ const API_BASE_URL = "https://ott-9j3d.onrender.com/api";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  
 });
 
 
